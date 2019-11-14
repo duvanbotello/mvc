@@ -23,33 +23,49 @@ function handler()
     switch ($event) {
 
         case SET_USER:
-            $usuario->set($user_data);
-            $data = array('mensaje' => $usuario->mensaje);
+            if (empty($user_data['nombre']) || empty($user_data['apellido']) || empty($user_data['email']) || empty($user_data['clave'])) {
+                $data = array('mensaje' => "Te Faltaron datos por completar");
+            } else {
+                $usuario->set($user_data);
+                $data = array('mensaje' => $usuario->mensaje);
+            }
             retornar_vista(VIEW_SET_USER, $data);
             break;
         case GET_USER:
-            $usuario->get($user_data);
-            $data = array(
-                'nombre' => $usuario->nombre,
-                'apellido' => $usuario->apellido,
-                'email' => $usuario->email
-            );
+            if (empty($user_data['email'])) {
+                $data = array('mensaje' => "Digite Email");
+            } else {
+                $usuario->get($user_data);
+                $data = array(
+                    'nombre' => $usuario->nombre,
+                    'apellido' => $usuario->apellido,
+                    'email' => $usuario->email
+                );
+            }
             retornar_vista(VIEW_EDIT_USER, $data);
             break;
         case DELETE_USER:
-            $usuario->delete($user_data['email']);
-            $data = array('mensaje' => $usuario->mensaje);
+            if (empty($user_data['email'])) {
+                $data = array('mensaje' => "Digite Email");
+            } else {
+                $usuario->delete($user_data['email']);
+                $data = array('mensaje' => $usuario->mensaje);
+            }
             retornar_vista(VIEW_DELETE_USER, $data);
             break;
         case EDIT_USER:
-            $usuario->edit($user_data);
-            $data = array('mensaje' => $usuario->mensaje);
+            if (empty($user_data['nombre']) || empty($user_data['apellido']) || empty($user_data['email'])) {
+                $data = array('mensaje' => "Te Faltaron datos por completar");
+            } else {
+                $usuario->edit($user_data);
+                $data = array('mensaje' => $usuario->mensaje);
+            }
             retornar_vista(VIEW_GET_USER, $data);
             break;
         case LIST_USER:
             $listUser = $usuario->getAll();
             $data = array('mensaje' => $usuario->mensaje);
-            renderUser($listUser,VIEW_LIST_USER, $data );
+            renderUser($listUser, VIEW_LIST_USER, $data);
             break;
         default:
             retornar_vista($event);
