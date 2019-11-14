@@ -7,9 +7,9 @@ function handler()
     $event = VIEW_GET_USER;
     $uri = $_SERVER['REQUEST_URI'];
     $peticiones = array(
-        SET_USER, GET_USER, DELETE_USER, EDIT_USER,
+        SET_USER, GET_USER, DELETE_USER, EDIT_USER, LIST_USER,
         VIEW_SET_USER, VIEW_GET_USER, VIEW_DELETE_USER,
-        VIEW_EDIT_USER
+        VIEW_EDIT_USER, VIEW_LIST_USER
     );
     foreach ($peticiones as $peticion) {
         $uri_peticion = MODULO . $peticion . '/';
@@ -19,8 +19,9 @@ function handler()
     }
     $user_data = helper_user_data();
     $usuario = set_obj();
+
     switch ($event) {
-        
+
         case SET_USER:
             $usuario->set($user_data);
             $data = array('mensaje' => $usuario->mensaje);
@@ -44,6 +45,11 @@ function handler()
             $usuario->edit($user_data);
             $data = array('mensaje' => $usuario->mensaje);
             retornar_vista(VIEW_GET_USER, $data);
+            break;
+        case LIST_USER:
+            $listUser = $usuario->getAll();
+            $data = array('mensaje' => $usuario->mensaje);
+            renderUser($listUser,VIEW_LIST_USER, $data );
             break;
         default:
             retornar_vista($event);

@@ -3,21 +3,22 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="/mvc/site_media/css/base_template.css">
     <title>ABM de Usuarios: {subtitulo}</title>
 </head>
 
 <body>
     <div id="cabecera">
-        <h1>Administrador de usuarios</h1>
-        <h2>{subtitulo}</h2>
+        <h4>Administrador de usuarios</h1>
+        <h5>{subtitulo}</h2>
     </div>
     <div id="menu">
         <a href="/mvc/{VIEW_SET_USER}" title="Nuevo usuario">Agregar usuario</a>
-        <a href="/mvc/{VIEW_GET_USER}" title="Buscar usuario">Buscar/editar
-            usuario</a>
-        <a href="/mvc/{VIEW_DELETE_USER}" title="Borrar usuario">Borrar
-            usuario</a>
+        <a href="/mvc/{VIEW_GET_USER}" title="Buscar usuario">Buscar/editar usuario</a>
+        <a href="/mvc/{VIEW_DELETE_USER}" title="Borrar usuario">Borrar usuario</a>
+        <a href="/mvc/{VIEW_LIST_USER}" title="Borrar usuario">Listar Usuarios</a>
     </div>
     <div id="mensaje">
         {mensaje}
@@ -25,6 +26,7 @@
     <div id="formulario">
         {formulario}
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script type="text/javascript" src="/mvc/site_media/js/validaciones.js"></script>
 </body>
 

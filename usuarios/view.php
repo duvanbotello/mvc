@@ -4,19 +4,22 @@ $diccionario = array(
         VIEW_SET_USER => 'Crear un nuevo usuario',
         VIEW_GET_USER => 'Buscar usuario',
         VIEW_DELETE_USER => 'Eliminar un usuario',
-        VIEW_EDIT_USER => 'Modificar usuario'
+        VIEW_EDIT_USER => 'Modificar usuario',
+        VIEW_LIST_USER => 'Listar Usuarios'
     ),
     'links_menu' => array(
         'VIEW_SET_USER' => MODULO . VIEW_SET_USER . '/',
         'VIEW_GET_USER' => MODULO . VIEW_GET_USER . '/',
         'VIEW_EDIT_USER' => MODULO . VIEW_EDIT_USER . '/',
-        'VIEW_DELETE_USER' => MODULO . VIEW_DELETE_USER . '/'
+        'VIEW_DELETE_USER' => MODULO . VIEW_DELETE_USER . '/',
+        'VIEW_LIST_USER' => MODULO . VIEW_LIST_USER . '/'
     ),
     'form_actions' => array(
         'SET' => '/mvc/' . MODULO . SET_USER . '/',
         'GET' => '/mvc/' . MODULO . GET_USER . '/',
         'DELETE' => '/mvc/' . MODULO . DELETE_USER . '/',
-        'EDIT' => '/mvc/' . MODULO . EDIT_USER . '/'
+        'EDIT' => '/mvc/' . MODULO . EDIT_USER . '/',
+        'LIST' => '/mvc/' . MODULO . LIST_USER . '/'
     )
 );
 function get_template($form = 'get')
@@ -60,5 +63,48 @@ function retornar_vista($vista, $data = array())
         }
     }
     $html = str_replace('{mensaje}', $mensaje, $html);
+    print $html;
+}
+
+function renderUser($datos, $vista, $data)
+{
+
+    $html2 = "<table>
+    <thead>
+      <tr>
+          <th>id</th>
+          <th>Nombre</th>
+          <th>Apellido</th>
+          <th>Email</th>
+      </tr>
+    </thead>
+  
+    <tbody>";
+
+    foreach ($datos as $propiedad => $valor) {
+
+        $html2 = $html2 . "<tr>
+        <td>" . $valor["id"] . "</td>
+        <td>" . $valor["nombre"] . "</td>
+        <td>" . $valor["apellido"] . "</td>
+        <td>" . $valor["email"] . "</td>
+            </tr>
+        ";
+    }
+
+    $html2 = $html2 . "
+    </tbody>
+    </table>";
+    global $diccionario;
+    $html = get_template('template');
+    $html = str_replace(
+        '{subtitulo}',
+        $diccionario['subtitle'][$vista],
+        $html
+    );
+    $html = str_replace('{formulario}', $html2, $html);
+    $html = render_dinamic_data($html, $diccionario['form_actions']);
+    $html = render_dinamic_data($html, $diccionario['links_menu']);
+    $html = str_replace('{mensaje}', $data['mensaje'], $html);
     print $html;
 }

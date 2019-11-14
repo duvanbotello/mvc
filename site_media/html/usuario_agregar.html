@@ -1,11 +1,18 @@
-<form id="alta_usuario" onsubmit="return validarAgregar()" action="{SET}" method="POST">
-    <div class="item_requerid">E-mail</div>
-    <div class="form_requerid"><input type="text" name="email" id="email"></div>
-    <div class="item_requerid">Clave</div>
-    <div class="form_requerid"><input type="password" name="clave" id="clave"></div>
-    <div class="item_requerid">Nombre</div>
-    <div class="form_requerid"><input type="text" name="nombre" id="nombre"></div>
-    <div class="item_requerid">Apellido</div>
-    <div class="form_requerid"><input type="text" name="apellido" id="apellido"></div>
-    <div class="form_button"><input type="submit" name="enviar" id="enviar" value="Agregar"></div>
-</form>
+<div class="row">
+    <div class="col 4">
+        <form id="alta_usuario" onsubmit="return validarAgregar()" action="{SET}" method="POST">
+            <div>E-mail</div>
+            <div><input type="text" name="email" id="email"></div>
+            <div>Clave</div>
+            <div><input type="password" name="clave" id="clave"></div>
+            <div>Nombre</div>
+            <div><input type="text" name="nombre" id="nombre"></div>
+            <div>Apellido</div>
+            <div><input type="text" name="apellido" id="apellido"></div>
+            <button class="btn waves-effect waves-light" type="submit" name="enviar" id="enviar">Agregar
+                <i class="material-icons right">send</i>
+              </button>
+            
+        </form>
+    </div>
+</div>

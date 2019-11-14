@@ -10,7 +10,7 @@ body {
  background-color: #6699FF;
  color: #ffffff;
 }
-#cabecera h1, h2 {
+#cabecera h4, h5 {
  margin: 0px 0px 0px 0px;
 }
 #menu {
@@ -71,16 +71,5 @@ body {
     margin-left: 154px;
     clear: both;
    }
-   #enviar {
-    padding: 5px 10px 5px 10px;
-    border: 2px solid #ffffff;
-    background-color: #000000;
-    color: #ffffff;
-    font-family: sans-serif;
-    font-size: 14px;
-    font-weight: bold;
-    cursor: pointer;
-   }
-   #enviar:hover {
-    background-color: #6699FF;
-   }
+   
+  

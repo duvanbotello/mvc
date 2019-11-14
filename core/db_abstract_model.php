@@ -6,6 +6,7 @@ abstract class DBAbstractModel
     private static $db_pass = '';
     private static $db_name = 'mvc';
     protected $query;
+    protected $rows2;
     protected $rows = array();
     private $conn;
     private $db;

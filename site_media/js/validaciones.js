@@ -5,26 +5,26 @@ let apellido = document.getElementById('apellido');
 
 var validarAgregar = () => {
     if (email.value == '') {
-        alert('Ingrese Email')
+        M.toast({html: 'Ingrese Email', classes: 'rounded'});
         email.focus()
         return false;
     } else {
         if (validarEmail(email.value) == true) {
             if (clave.value == '') {
                 clave.focus()
-                alert('Ingrese Clave')
+                M.toast({html: 'Ingrese Clave', classes: 'rounded'});
                 return false;
             } else {
 
                 if (nombre.value == '') {
                     nombre.focus()
-                    alert('Ingrese nombre')
+                    M.toast({html: 'Ingrese Nombre', classes: 'rounded'});
                     return false;
                 } else {
 
                     if (apellido.value == '') {
                         apellido.focus()
-                        alert('Ingrese Apellido')
+                        M.toast({html: 'Ingrese Apellido', classes: 'rounded'});
                         return false;
                     } else {
                         return true;
@@ -32,7 +32,7 @@ var validarAgregar = () => {
                 }
             }
         } else {
-            alert('Ingrese una direccion de correo valida')
+            M.toast({html: 'Ingrese una direccion de correo valida', classes: 'rounded'});
             return false;
 
         }
@@ -43,14 +43,14 @@ var validarAgregar = () => {
 
 var validarBuscar = () => {
     if (email.value == '') {
-        alert('Ingrese Email')
+        M.toast({html: 'Ingrese Email', classes: 'rounded'});
         email.focus()
         return false;
     } else {
         if (validarEmail(email.value) == true) {
             return true;
         } else {
-            alert('Ingrese una direccion de correo valida')
+            M.toast({html: 'Ingrese una direccion de correo valida', classes: 'rounded'});
             return false;
 
         }
@@ -60,20 +60,20 @@ var validarBuscar = () => {
 
 var validarModificar = () => {
     if (email.value == '') {
-        alert('Ingrese Email')
+        M.toast({html: 'Ingrese Email', classes: 'rounded'});
         email.focus()
         return false;
     } else {
         if (validarEmail(email.value) == true) {
             if (nombre.value == '') {
                 nombre.focus()
-                alert('Ingrese nombre')
+                M.toast({html: 'Ingrese Nombre', classes: 'rounded'});
                 return false;
             } else {
 
                 if (apellido.value == '') {
                     apellido.focus()
-                    alert('Ingrese Apellido')
+                    M.toast({html: 'Ingrese Apellido', classes: 'rounded'});
                     return false;
                 } else {
                     return true;
@@ -81,7 +81,7 @@ var validarModificar = () => {
             }
 
         } else {
-            alert('Ingrese una direccion de correo valida')
+            M.toast({html: 'Ingrese una direccion de correo valida', classes: 'rounded'});
             return false;
 
         }
@@ -92,14 +92,14 @@ var validarModificar = () => {
 
 var validarBorrar = () => {
     if (email.value == '') {
-        alert('Ingrese Email')
+        M.toast({html: 'Ingrese Email', classes: 'rounded'});
         email.focus()
         return false;
     } else {
         if (validarEmail(email.value) == true) {
             return true;
         } else {
-            alert('Ingrese una direccion de correo valida')
+            M.toast({html: 'Ingrese una direccion de correo valida', classes: 'rounded'});
             return false;
 
         }

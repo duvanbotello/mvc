@@ -1,9 +1,15 @@
-<form id="alta_usuario"  onsubmit="return validarModificar()" action="{EDIT}" method="POST">
-    <div class="item_requerid">E-mail</div>
-    <div class="form_requerid"><input type="text" name="email" id="email" value="{email}" readonly></div>
-    <div class="item_requerid">Nombre</div>
-    <div class="form_requerid"><input type="text" name="nombre" id="nombre" value="{nombre}"></div>
-    <div class="item_requerid">Apellido</div>
-    <div class="form_requerid"><input type="text" name="apellido" id="apellido" value="{apellido}"></div>
-    <div class="form_button"><input type="submit" name="enviar" id="enviar" value="Guardar"></div>
-</form>
+<div class="row">
+    <div class="col 4">
+        <form id="alta_usuario" onsubmit="return validarModificar()" action="{EDIT}" method="POST">
+            <div>E-mail</div>
+            <div><input type="text" name="email" id="email" value="{email}" readonly></div>
+            <div>Nombre</div>
+            <div><input type="text" name="nombre" id="nombre" value="{nombre}"></div>
+            <div>Apellido</div>
+            <div><input type="text" name="apellido" id="apellido" value="{apellido}"></div>
+            <button class="btn waves-effect waves-light" type="submit" name="enviar" id="enviar">Guardar
+                <i class="material-icons right">send</i>
+            </button>
+        </form>
+    </div>
+</div>

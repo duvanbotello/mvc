@@ -26,9 +26,19 @@ class Usuario extends DBAbstractModel
             $this->mensaje = 'Usuario no encontrado';
         }
     }
+
+    public function getAll()
+    {
+        $this->query = "SELECT id, nombre, apellido, email, clave FROM usuarios";
+        $this->get_results_from_query();
+        $this->mensaje = 'Lista de Usuarios';
+        return $this->rows;
+    }
+
     # Crear un nuevo usuario
     public function set($user_data = array())
     {
+
         if (array_key_exists('email', $user_data)) {
             $this->get($user_data['email']);
             if ($user_data['email'] != $this->email) {
@@ -64,9 +74,7 @@ class Usuario extends DBAbstractModel
     }
     # Método constructor
     function __construct()
-    {
-        $this->db_name = 'book_example';
-    }
+    { }
     # Método destructor del objeto
-    
+
 }
